@@ -10,8 +10,12 @@ to pass — the actual data access is fully controlled by this code.
 """
 
 import pandas as pd
+from pathlib import Path
 
-DATA_PATH = "outputs/scored_transactions.csv"
+# Resolve the path relative to this file's location (not the current working
+# directory), so this works whether you run the app from the project root
+# or from inside the chatbot/ folder.
+DATA_PATH = Path(__file__).resolve().parent.parent / "outputs" / "scored_transactions.csv"
 
 
 def _load_data():
