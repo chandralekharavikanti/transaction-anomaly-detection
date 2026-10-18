@@ -1,5 +1,7 @@
 # Transaction Anomaly Detection
 
+Machine learning pipeline using Isolation Forest to detect unusual payment transactions, with a Streamlit chatbot powered by Anthropic Claude for natural-language analysis of flagged activity.
+
 A lightweight, explainable anomaly detection system for digital payment
 transactions, built to demonstrate how unsupervised machine learning can
 support fraud monitoring in a fintech analytics context — designed to be
@@ -79,6 +81,18 @@ python src/detect_anomalies.py
 ```
 
 Output lands in `outputs/scored_transactions.csv`.
+
+## AI Chatbot
+
+The repository includes a Streamlit chatbot (`chatbot/app.py`) powered by Anthropic Claude tool-calling. It answers natural-language questions about flagged transactions using controlled query functions in `chatbot/query_tools.py`, including filtering, grouping anomalies by location or merchant category, and showing the most unusual transactions. The chatbot uses the scored transaction CSV and requires an Anthropic API key.
+
+Run it after installing Streamlit and Anthropic dependencies and setting `ANTHROPIC_API_KEY`:
+
+```bash
+streamlit run chatbot/app.py
+```
+
+Example questions: "Which location has the most anomalies?" and "Show the five most unusual transactions."
 
 ## Next Steps
 
